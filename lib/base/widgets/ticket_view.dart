@@ -9,7 +9,10 @@ import 'package:ticket_app/base/widgets/ticket_text_layout.dart';
 import '../res/styles/app_styles.dart';
 
 class TicketView extends StatelessWidget {
-  const TicketView({super.key});
+  final Map<String, dynamic> ticket;
+  final bool wholeScreen;
+  const TicketView(
+      {super.key, required this.ticket, required this.wholeScreen});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,7 @@ class TicketView extends StatelessWidget {
       width: size.width * 0.85,
       height: 189,
       child: Container(
-        margin: const EdgeInsets.only(right: 16),
+        margin: EdgeInsets.only(right: wholeScreen ? 0 : 16),
         child: Column(
           children: [
             //Blue Ticket
@@ -36,7 +39,7 @@ class TicketView extends StatelessWidget {
                     //show departure and destination with icon
                     Row(
                       children: [
-                        const TextStyleThird(text: "NYC"),
+                        TextStyleThird(text: ticket["from"]["code"]),
                         Expanded(child: Container()),
                         const BigDot(),
                         Expanded(
@@ -60,7 +63,7 @@ class TicketView extends StatelessWidget {
                         )),
                         const BigDot(),
                         Expanded(child: Container()),
-                        const TextStyleThird(text: "LDN"),
+                        TextStyleThird(text: ticket["to"]["code"]),
                       ],
                     ),
                     const SizedBox(
@@ -69,16 +72,17 @@ class TicketView extends StatelessWidget {
                     //show departure and destination names with time
                     Row(
                       children: [
-                        const SizedBox(
+                        SizedBox(
                             width: 100,
-                            child: TextStyleFourth(text: "New York")),
+                            child:
+                                TextStyleFourth(text: ticket["from"]["name"])),
                         Expanded(child: Container()),
-                        const TextStyleFourth(text: "8H 30M"),
+                        TextStyleFourth(text: ticket["flying_time"]),
                         Expanded(child: Container()),
-                        const SizedBox(
+                        SizedBox(
                             width: 100,
                             child: TextStyleFourth(
-                              text: "London",
+                              text: ticket["to"]["name"],
                               align: TextAlign.end,
                             ))
                       ],
@@ -115,7 +119,7 @@ class TicketView extends StatelessWidget {
                     bottomLeft: Radius.circular(21),
                     bottomRight: Radius.circular(21)),
               ),
-              child: const Center(
+              child: Center(
                 child: Column(
                   children: [
                     //show departure and destination with icon
@@ -123,17 +127,17 @@ class TicketView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         TicketTextLayout(
-                          topText: "1 MAY",
+                          topText: ticket["date"],
                           bottomText: "DATE",
                           alignment: CrossAxisAlignment.start,
                         ),
                         TicketTextLayout(
-                          topText: "08:00 AM",
+                          topText: ticket["departure_time"],
                           bottomText: "Departure time",
                           alignment: CrossAxisAlignment.center,
                         ),
                         TicketTextLayout(
-                          topText: "23",
+                          topText: ticket["number"].toString(),
                           bottomText: "Number",
                           alignment: CrossAxisAlignment.end,
                         ),

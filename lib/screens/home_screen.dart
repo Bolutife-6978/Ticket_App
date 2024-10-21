@@ -5,6 +5,7 @@ import 'package:ticket_app/base/widgets/ticket_view.dart';
 
 import '../base/res/media.dart';
 import '../base/res/styles/app_styles.dart';
+import '../base/utils/app_json.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,7 +16,9 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: AppStyles.bgColor,
       body: ListView(
         children: [
-          const SizedBox(height: 40,),
+          const SizedBox(
+            height: 40,
+          ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
@@ -67,14 +70,24 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 40,),
-                const AppDoubleText(bigText: 'Upcoming Flights', smallText: 'View all',),
-                const SizedBox(height: 20,),
-               const TicketView(),
+                const SizedBox(
+                  height: 40,
+                ),
+                const AppDoubleText(
+                  bigText: 'Upcoming Flights',
+                  smallText: 'View all',
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                 SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: ticketList.map((singleTicket) =>  TicketView(ticket: singleTicket, wholeScreen: false,)).toList()),
+                    ),
               ],
             ),
           ),
-
         ],
       ),
     );
