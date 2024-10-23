@@ -47,41 +47,41 @@ List<Map<String, dynamic>> ticketList = [
       'name':"New-York"
     },
     'to': {
-      'code':"LDN",
-      'name':"London"
+      'code':"BJ",
+      'name':"Beijing"
     },
-    'flying_time': '8H 30M',
+    'flying_time': '9H 35M',
     'date': "1 MAY",
-    'departure_time':"08:00 AM",
-    "number":23
+    'departure_time':"10:00 AM",
+    "number":53
   },
   {
     'from': {
-      'code':"DK",
-      'name':"Dhaka"
-    },
-    'to': {
-      'code':"SH",
-      'name':"Shanghai"
-    },
-    'flying_time': '4H 20M',
-    'date': "10 MAY",
-    'departure_time':"09:00 AM",
-    "number":55
-  },
-  {
-    'from': {
-      'code':"DK",
-      'name':"Dhaka"
+      'code':"Ch",
+      'name':"Chengdu"
     },
     'to': {
       'code':"GZ",
       'name':"Guangzhou"
     },
-    'flying_time': '4H 20M',
-    'date': "10 MAY",
-    'departure_time':"09:00 AM",
-    "number":45
+    'flying_time': '2H 20M',
+    'date': "2 MAY",
+    'departure_time':"11:00 AM",
+    "number":50
+  },
+  {
+    'from': {
+      'code':"BJ",
+      'name':"Beijing"
+    },
+    'to': {
+      'code':"HK",
+      'name':"Hong Kong"
+    },
+    'flying_time': '3H 20M',
+    'date': "12 MAY",
+    'departure_time':"11:00 AM",
+    "number":55
   },
 ];
 
@@ -103,5 +103,11 @@ List<Map<String, dynamic>> hotelList = [
     'place': 'Best city pool',
     'destination': 'Dubai',
     'price': 68
+  },
+  {
+    'image': 'hotel_room_1.png',
+    'place': 'Best hotel',
+    'destination': 'UAE',
+    'price': 78
   },
 ];
